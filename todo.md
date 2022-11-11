@@ -4,11 +4,7 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- polynomial support for all value types
-
-- polynomial synthetic division to factor-out roots
-
-- full polynomial solving
+- polynomial support for complex numbers !!
 
 - the exponential function, optimized, with all type inputs/outputs
 

@@ -43,6 +43,18 @@ impl Poly {
         quotient.remove(self.l() - 1);
         Poly { co: quotient }
     }
+    pub fn solve(self, y: f32) -> Vec<f32> {
+        // welcome to cracked math
+        let mut p: Poly = self - y;
+        let mut rootvec: Vec<f32> = Vec::new();
+        while p.co.len() > 1 {
+            let solution = rnewton(&p,0.0);
+            rootvec.push(solution);
+            p = p.rootdiv(solution);
+        };
+        rootvec
+
+    }
 }
 impl ops::Neg for Poly {
     type Output = Poly;
@@ -109,7 +121,6 @@ impl ops::Sub<f32> for Poly {
 impl ops::Mul<f32> for Poly {
     type Output = Poly;
     fn mul(self, scale: f32) -> Poly {
-        let leng = &self.l();
         let mut p: Vec<f32> = self.co;
         for indx in 0..p.len() {
             p[indx] *= scale;
@@ -118,7 +129,7 @@ impl ops::Mul<f32> for Poly {
     }
 }
 
-pub fn rnewton(p: Poly, y: f32) -> f32 {
+pub fn rnewton(p: &Poly, y: f32) -> f32 {
     let mut counter: usize = 0;
     let pp: &Poly = &p.dvt();
     let (mut x1, mut x2): (f32, f32) = (2.0, 1.0);
