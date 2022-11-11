@@ -47,3 +47,17 @@ impl ops::Sub<Poly> for Poly {
     type Output = Poly;
     fn sub(self, other: Poly) -> Poly { self + -other }
 } // oldest trick in the book
+impl ops::Mul<Poly> for Poly {
+    type Output = Poly;
+    fn mul(self, other: Poly) -> Poly {
+        let (p1, p2): (Vec<f32>, Vec<f32>) = (self.co, other.co);
+        let leng: usize = p1.len() + p2.len() - 1;
+        let mut product: Vec<f32> = vec![0.0; p1.len()+p2.len()-1];
+        for t1 in 0..p1.len() {
+            for t2 in 0..p2.len() {
+                product[leng-t1-t2-1] += p1[p1.len()-t1-1] * p2[p2.len()-t2-1]
+            }
+        }
+        Poly { co: product }
+    }
+}
