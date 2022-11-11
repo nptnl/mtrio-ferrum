@@ -5,9 +5,11 @@ mod ch;
 mod alg;
 
 #[allow(dead_code)]
+
 fn main() {
     static BASED: bool = true;
-    let f: alg::Poly = alg::Poly::new(vec![1.0,-2.0]);
-    let g: alg::Poly = alg::Poly::new(vec![1.0,-3.0]);
-    println!("{:#?}", (f * g).solve(0.0))
+    let f: alg::Poly = alg::Poly::new(
+        vec![ch::CC1, ch::CC0, ch::Comp::new(4.0,0.0)]
+    );
+    println!("{:#?}", f.solve(ch::CC0));
 }

@@ -2,8 +2,8 @@ use std::ops;
 
 #[derive(Debug, Copy, Clone)]
 pub struct Comp {
-    r: f32,
-    i: f32,
+    pub r: f32,
+    pub i: f32,
 }
 impl Comp {
     pub fn new(r: f32, i: f32) -> Self { Self { r, i } }
@@ -27,13 +27,22 @@ impl Comp {
         }
     }
 }
+impl ops::Neg for Comp {
+    type Output = Comp;
+    fn neg(self) -> Self {
+        Self {
+            r: -self.r,
+            i: -self.i,
+        }
+    }
+}
 
 #[derive(Debug, Copy, Clone)]
 pub struct Quat {
-    r: f32,
-    i: f32,
-    j: f32,
-    k: f32,
+    pub r: f32,
+    pub i: f32,
+    pub j: f32,
+    pub k: f32,
 }
 impl Quat {
     pub fn new(r: f32, i: f32, j: f32, k: f32) -> Self { Self { r, i, j, k } }
@@ -52,6 +61,17 @@ impl Quat {
             i: -self.i / coef,
             j: -self.j / coef,
             k: -self.k / coef,
+        }
+    }
+}
+impl ops::Neg for Quat {
+    type Output = Quat;
+    fn neg(self) -> Self {
+        Self {
+            r: -self.r,
+            i: -self.i,
+            j: -self.j,
+            k: -self.k,
         }
     }
 }
@@ -286,3 +306,32 @@ impl ops::Div<Quat> for Quat {
         self * other.inv()
     }
 }
+
+impl ops::AddAssign for Comp {
+    fn add_assign(&mut self, other: Comp) {
+        *self = Self {
+            r: self.r + other.r,
+            i: self.i + other.i,
+        }
+    }
+}
+impl ops::SubAssign for Comp {
+    fn sub_assign(&mut self, other: Comp) {
+        *self = Self {
+            r: self.r - other.r,
+            i: self.i - other.i,
+        }
+    }
+}
+impl ops::MulAssign for Comp {
+    fn mul_assign(&mut self, other: Comp) {
+        *self = Self {
+            r: self.r*other.r - self.i*other.i,
+            i: self.r*other.i + self.i*other.r,
+        }
+    }
+}
+
+pub static CC0: Comp = Comp { r: 0.0, i: 0.0 };
+pub static CC1: Comp = Comp { r: 1.0, i: 0.0 };
+pub static CCI: Comp = Comp { r: 0.0, i: 1.0 };
