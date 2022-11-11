@@ -33,6 +33,16 @@ impl Poly {
         p.push(c);
         Poly { co: p }
     }
+    pub fn rootdiv(self, rt: f32) -> Poly {
+        let mut c: f32 = self.co[0];
+        let mut quotient: Vec<f32> = vec![c];
+        for time in 1..self.co.len() {
+            c = rt*c + self.co[time];
+            quotient.push(c);
+        }
+        quotient.remove(self.l() - 1);
+        Poly { co: quotient }
+    }
 }
 impl ops::Neg for Poly {
     type Output = Poly;
@@ -62,7 +72,8 @@ impl ops::Add<Poly> for Poly {
 impl ops::Sub<Poly> for Poly {
     type Output = Poly;
     fn sub(self, other: Poly) -> Poly { self + -other }
-} // oldest trick in the book
+    // oldest trick in the book
+}
 impl ops::Mul<Poly> for Poly {
     type Output = Poly;
     fn mul(self, other: Poly) -> Poly {
@@ -76,4 +87,49 @@ impl ops::Mul<Poly> for Poly {
         }
         Poly { co: product }
     }
+}
+impl ops::Add<f32> for Poly {
+    type Output = Poly;
+    fn add(self, ad: f32) -> Poly {
+        let leng = &self.l();
+        let mut p: Vec<f32> = self.co;
+        p[leng - 1] += ad;
+        Poly { co: p }
+    }
+}
+impl ops::Sub<f32> for Poly {
+    type Output = Poly;
+    fn sub(self, ad: f32) -> Poly {
+        let leng = &self.l();
+        let mut p: Vec<f32> = self.co;
+        p[leng - 1] -= ad;
+        Poly { co: p }
+    }
+}
+impl ops::Mul<f32> for Poly {
+    type Output = Poly;
+    fn mul(self, scale: f32) -> Poly {
+        let leng = &self.l();
+        let mut p: Vec<f32> = self.co;
+        for indx in 0..p.len() {
+            p[indx] *= scale;
+        };
+        Poly { co: p }
+    }
+}
+
+pub fn rnewton(p: Poly, y: f32) -> f32 {
+    let mut counter: usize = 0;
+    let pp: &Poly = &p.dvt();
+    let (mut x1, mut x2): (f32, f32) = (2.0, 1.0);
+    while (x1 - x2) > 0.0001 || (x2 - x1) > 0.0001 {
+        if counter > 100 {
+            x2 += 1.0;
+            counter = 0;
+        };
+        x1 = x2;
+        x2 -= (p.val(x1) - y) / pp.val(x1);
+        counter += 1;
+    }
+    x2
 }

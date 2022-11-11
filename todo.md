@@ -4,7 +4,7 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- Newton's method to solve functions (including nth-roots of a number)
+- polynomial support for all value types
 
 - polynomial synthetic division to factor-out roots
 
