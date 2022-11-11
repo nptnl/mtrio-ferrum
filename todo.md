@@ -4,8 +4,6 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- differentiation and integration for polynomials
-
 - Newton's method to solve functions (including nth-roots of a number)
 
 - polynomial synthetic division to factor-out roots

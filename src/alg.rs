@@ -7,7 +7,7 @@ pub struct Poly {
 impl Poly {
     pub fn new(co: Vec<f32>) -> Poly { Poly { co } }
     pub fn l(&self) -> usize { self.co.len() }
-    pub fn val(self, x: f32) -> f32 {
+    pub fn val(&self, x: f32) -> f32 {
         let mut power: f32 = 1.0;
         let mut total: f32 = 0.0;
         let leng: usize = self.co.len();
@@ -16,6 +16,22 @@ impl Poly {
             power *= x;
         }
         total
+    }
+    pub fn dvt(&self) -> Poly {
+        let mut p = self.co.to_vec();
+        for indx in 0..p.len() {
+            p[indx] = p[indx] * (p.len() - indx - 1) as f32;
+        }
+        p.remove(p.len() - 1);
+        Poly { co: p }
+    }
+    pub fn itg(&self, c: f32) -> Poly {
+        let mut p = self.co.to_vec();
+        for indx in 0..p.len() {
+            p[indx] = p[indx] / (p.len() - indx) as f32;
+        }
+        p.push(c);
+        Poly { co: p }
     }
 }
 impl ops::Neg for Poly {
