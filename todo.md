@@ -4,7 +4,7 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- `+ - * /` implementation for `Poly` type
+- `*` implementation for `Poly` type
 
 - differentiation and integration for polynomials
 

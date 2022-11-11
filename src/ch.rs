@@ -6,12 +6,7 @@ pub struct Comp {
     i: f32,
 }
 impl Comp {
-    pub fn new(real: f32, imag: f32) -> Self {
-        Self {
-            r: real,
-            i: imag,
-        }
-    }
+    pub fn new(r: f32, i: f32) -> Self { Self { r, i } }
     pub fn conj(self) -> Self {
         Self {
             r: self.r,
@@ -41,14 +36,7 @@ pub struct Quat {
     k: f32,
 }
 impl Quat {
-    pub fn new(real: f32, imag: f32, jmag: f32, kmag: f32) -> Self {
-        Self {
-            r: real,
-            i: imag,
-            j: jmag,
-            k: kmag,
-        }
-    }
+    pub fn new(r: f32, i: f32, j: f32, k: f32) -> Self { Self { r, i, j, k } }
     pub fn conj(self) -> Self {
         Self {
             r: self.r,
