@@ -147,3 +147,19 @@ pub fn newton(p: &Poly, y: Comp) -> Comp {
     }
     x2
 }
+
+pub fn exp(x: Comp) -> Comp {
+    let (mut total, mut power): (Comp, Comp) = (ch::CC0, ch::CC1);
+    let extra: isize = x.r.round() as isize;
+    let x = Comp { r: x.r % 1.0, i: x.i % 6.28319 };
+    for time in 1..20 {
+        total += power;
+        power *= x / time as f32;
+    };
+    if extra >= 0 { for _iter in 0..extra { total = total * 2.71828f32 }; } 
+    else { for _iter in 0..-extra { total = total / 2.71828f32 }; };
+    total
+}
+pub fn ixp(x: Comp) -> Comp {
+    exp(ch::CCI * x)
+}

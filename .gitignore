@@ -1,3 +1,5 @@
 /target
 .DS_Store
 ideas.py
+*.pyc
+/__pycache__

@@ -10,7 +10,9 @@ This is a personal project, so new stuff will only be added when I feel like add
 
 - Complex number and quaternion structs, with `+ - * /` implemented between both these and `f32` real numbers
 
-- Polynomial type; includes evaluation, `+ - *`, calculus, and complete solving
+- Polynomial type; includes evaluation, `+ - *`, calculus, and complete complex solving
+
+- The complex exponential function
 
 ---
 

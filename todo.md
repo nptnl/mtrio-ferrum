@@ -4,14 +4,18 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- polynomial support for complex numbers !!
-
-- the exponential function, optimized, with all type inputs/outputs
-
-- natural logarithm (one branch, of course)
+- natural logarithm (one branch, of course), with proper part-splitting and range-fixing
 
 - trigonometry using the exponential
 
 - inverse trig using the logarithm
 
 - rational-number type with fraction simplifying
+
+- multithreaded input space and parameter space fractal rendering for generalized functions
+
+- TI-89 style equation parsing, differentiation, and solving
+
+- 2D coordinate system and line plotting, into terminal or [NPXL](https://github.com/notseanray/npxl-viewer) images
+
+- 3D projection for spatial rotation and rendering
