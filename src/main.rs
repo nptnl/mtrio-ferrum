@@ -5,8 +5,11 @@ mod ch;
 mod alg;
 
 #[allow(dead_code)]
+mod trig;
+
+#[allow(dead_code)]
 
 fn main() {
     static BASED: bool = true;
-    println!("henlo");
+    println!("based math has arrived");
 }
