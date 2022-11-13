@@ -6,8 +6,6 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 - natural logarithm (one branch, of course), with proper part-splitting and range-fixing
 
-- trigonometry using the exponential
-
 - inverse trig using the logarithm
 
 - rational-number type with fraction simplifying
@@ -17,7 +15,7 @@ Most initial features will be brought over from my Python math library, [PureMat
 - TI-89 style equation parsing, differentiation, and solving
 
 - 2D coordinate system and line plotting, into terminal or
-[NPXL](https://github.com/notseanray/npxl-viewer)
+[NPXL](https://github.com/nptnl/nxl)
 image format
 (see [viewer](https://github.com/notseanray/npxl-viewer) by @notseanray
 
