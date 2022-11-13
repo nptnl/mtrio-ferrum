@@ -37,5 +37,5 @@ pub fn sech(x: Comp) -> Comp {
     2.0 / (exp(x) + exp(x).inv())
 }
 pub fn csch(x: Comp) -> Comp {
-    2.0 * CCI / (exp(x) - exp(x).inv())
+    2.0 / (exp(x) - exp(x).inv())
 }
