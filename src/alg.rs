@@ -144,22 +144,71 @@ pub fn newton(p: &Poly, y: Comp) -> Comp {
         x1 = x2;
         x2 -= (p.val(x1) - y) / pp.val(x1);
         counter += 1;
-    }
+    };
     x2
 }
-
+pub fn real_sqrt(x: f32) -> f32 {
+    let (mut t1, mut t2): (f32, f32) = (2.0, 1.0);
+    while (t2 - t1).abs() > 0.0001 {
+        t1 = t2;
+        t2 -= (t2*t2 - x) / (2.0*t2);
+    }
+    t2
+}
 pub fn exp(x: Comp) -> Comp {
     let (mut total, mut power): (Comp, Comp) = (ch::CC0, ch::CC1);
-    let extra: isize = x.r.round() as isize;
+    let extra: isize = x.r as isize;
     let x = Comp { r: x.r % 1.0, i: x.i % 6.28319 };
-    for time in 1..20 {
+    for time in 1..12 {
         total += power;
         power *= x / time as f32;
     };
     if extra >= 0 { for _iter in 0..extra { total = total * 2.71828f32 }; } 
-    else { for _iter in 0..-extra { total = total / 2.71828f32 }; };
+    else { for _iter in 0..-extra { total = total / 2.71828f32 }; }
     total
 }
 pub fn ixp(x: Comp) -> Comp {
     exp(ch::CCI * x)
+}
+fn series_ln(x: Comp) -> Comp {
+    let x = x - 1.0;
+    let (mut total, mut neg, mut power): 
+    (Comp, bool, Comp) = (ch::CC0, true, ch::CC1);
+    for time in 1..16 {
+        power *= x;
+        neg = !neg;
+        if neg { total -= power / time as f32; }
+        else { total += power / time as f32; }
+    };
+    total
+}
+pub fn ln(x: Comp) -> Comp {
+    
+    let mut magnitude: Comp = Comp::new(real_sqrt(x.r*x.r + x.i*x.i), 0.0);
+    let mut inp: Comp = x / magnitude;
+    let mut neg: f32 = 1.0;
+    let (mut addedr, mut addedi): (f32, f32) = (0.0, 0.0);
+
+    if magnitude.r > 1.5 { magnitude = magnitude.inv();  neg = -1.0; }
+    while magnitude.r < 0.2 { magnitude = magnitude * 2.71828; addedr += 1.0; }
+
+    if x.i < -x.r {
+        if x.i < x.r {
+            inp *= ch::CCI;
+        addedi = 1.5708;
+        } else {
+            inp *= -ch::CC1;
+            addedi = -3.14159;
+        }
+    } else {
+        if x.i > x.r {
+            inp *= -ch::CCI;
+            addedi = -1.5708;
+        }
+    }
+
+    Comp {
+        r: (series_ln(magnitude).r - addedr) * neg,
+        i: series_ln(x).i - addedi,
+    }
 }

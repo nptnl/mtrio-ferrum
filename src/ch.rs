@@ -134,7 +134,7 @@ impl ops::Add<f32> for Comp {
 impl ops::Sub<f32> for Comp {
     type Output = Comp;
     fn sub(self, other: f32) -> Comp {
-        Comp::new(self.r+other, self.i)
+        Comp::new(self.r-other, self.i)
     }
 }
 impl ops::Mul<f32> for Comp {

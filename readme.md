@@ -15,6 +15,10 @@ and new stuff will only be added when I feel like adding it.
 
 - The complex exponential function using Taylor series
 
+- The complex natural logarithm using its Taylor series and extensive range-fixing
+
+- Trigonometric (and hyperbolic trigonometric) functions using the exponential
+
 *(More on the way — find it on
 [todo.md](./todo.md))*
 
