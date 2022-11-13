@@ -16,6 +16,9 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 - TI-89 style equation parsing, differentiation, and solving
 
-- 2D coordinate system and line plotting, into terminal or [NPXL](https://github.com/notseanray/npxl-viewer) images
+- 2D coordinate system and line plotting, into terminal or
+[NPXL](https://github.com/notseanray/npxl-viewer)
+image format
+(see [viewer](https://github.com/notseanray/npxl-viewer) by @notseanray
 
 - 3D projection for spatial rotation and rendering
