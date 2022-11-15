@@ -41,9 +41,9 @@ pub fn csch(x: Comp) -> Comp {
     2.0 / (exp(x) - exp(x).inv())
 }
 
-pub fn acos(x: Comp) -> Comp {
-    -CCI * ln(x + comp_sqrt(x*x - 1.0))
-}
+pub fn acos(x: Comp) -> Comp { -CCI * ln(x + comp_sqrt(x*x - 1.0)) }
 pub fn asin(x: Comp) -> Comp { 0.5*PI - acos(x) }
 pub fn asec(x: Comp) -> Comp { acos(x.inv()) }
 pub fn acsc(x: Comp) -> Comp { 0.5*PI - acos(x.inv()) }
+pub fn acot(x: Comp) -> Comp {Comp::new(0.0,0.5) * ln((x - CCI) / (x + CCI)) }
+pub fn atan(x: Comp) -> Comp { 0.5*PI - acot(x) }

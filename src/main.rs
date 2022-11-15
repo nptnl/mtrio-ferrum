@@ -11,10 +11,7 @@ mod trig;
 mod fractal;
 
 #[allow(dead_code)]
-
-
 fn main() {
     static BASED: bool = true;
     println!("based math has arrived");
-    fractal::mandelbrot(256, 64);
 }
