@@ -11,7 +11,7 @@ and new stuff will only be added when I feel like adding it.
 
 - Complex number and quaternion structs, with `+ - * /` implemented between both these and `f32` real numbers
 
-- Polynomial type; includes evaluation, `+ - *`, calculus, and complete complex solving
+- Polynomial type; includes evaluation, `+ - *`, calculus, and complete complex solving using Newton's method
 
 - The complex exponential function using Taylor series
 
@@ -19,9 +19,22 @@ and new stuff will only be added when I feel like adding it.
 
 - Trigonometric (and hyperbolic trigonometric) functions using the exponential
 
+- Inverse trigonometric funtions using the logarithm and roots
+
+- Fatou and Mandelbrot set fractal rendering for the famous recursive formula z^2 + c
+
+- Writing into a custom image format, [NPXL](https://github.com/nptnl/nxl), for compact render storage
+
+- 
+
 *(More on the way — find it on
 [todo.md](./todo.md))*
 
 ---
 
-See more concepts, information, terrible memes, and documentation in my Python math library, [PureMath](https://github.com/nptnl/puremath).
+See more concepts, information, terrible memes, and documentation in my Python math library, [puremath](https://github.com/nptnl/puremath).
+
+See the viewer designed for NPXL at
+[npxl-viewer](https://github.com/notseanray/npxl-viewer) by
+[notseanray](https://github.com/notseanray),
+and formatting information/documentation [here](https://github.com/nptnl/nxl).

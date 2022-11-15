@@ -4,11 +4,11 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
-- inverse trig using the logarithm
-
 - rational-number type with fraction simplifying
 
-- multithreaded input space and parameter space fractal rendering for generalized functions
+- input space and parameter space fractal rendering for generalized functions
+
+- fractal plot concurrency and further optimization
 
 - TI-89 style equation parsing, differentiation, and solving
 

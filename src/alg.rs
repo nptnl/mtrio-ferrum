@@ -147,9 +147,17 @@ pub fn newton(p: &Poly, y: Comp) -> Comp {
     };
     x2
 }
-pub fn real_sqrt(x: f32) -> f32 {
+fn real_sqrt(x: f32) -> f32 {
     let (mut t1, mut t2): (f32, f32) = (2.0, 1.0);
     while (t2 - t1).abs() > 0.0001 {
+        t1 = t2;
+        t2 -= (t2*t2 - x) / (2.0*t2);
+    }
+    t2
+}
+pub fn comp_sqrt(x: Comp) -> Comp {
+    let (mut t1, mut t2): (Comp, Comp) = (Comp::new(2.0,1.0), Comp::new(1.0,1.0));
+    while (t2.r - t1.r).abs() > 0.0001 || (t2.i - t1.i).abs() > 0.0001 {
         t1 = t2;
         t2 -= (t2*t2 - x) / (2.0*t2);
     }
@@ -167,9 +175,7 @@ pub fn exp(x: Comp) -> Comp {
     else { for _iter in 0..-extra { total = total / 2.71828f32 }; }
     total
 }
-pub fn ixp(x: Comp) -> Comp {
-    exp(ch::CCI * x)
-}
+pub fn ixp(x: Comp) -> Comp { exp(ch::CCI * x) }
 fn series_ln(x: Comp) -> Comp {
     let x = x - 1.0;
     let (mut total, mut neg, mut power): 

@@ -3,3 +3,4 @@
 ideas.py
 *.pyc
 /__pycache__
+/plots/*
