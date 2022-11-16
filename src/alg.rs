@@ -8,7 +8,7 @@ pub struct Poly {
 }
 impl Poly {
     pub fn new(co: Vec<Comp>) -> Poly { Poly { co } }
-    pub fn l(&self) -> usize { self.co.len() }
+    fn l(&self) -> usize { self.co.len() }
     pub fn val(&self, x: Comp) -> Comp {
         let mut power: Comp = ch::CC1;
         let mut total: Comp = ch::CC0;

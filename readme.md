@@ -27,7 +27,10 @@ and new stuff will only be added when I feel like adding it.
 
 - A constant `BASED` that's always `true`
 
-*(More on the way — find it on
+*(See the function details and math concepts in
+[doc.md](./doc.md))*
+
+*(More on the way — find it in
 [todo.md](./todo.md))*
 
 ---
