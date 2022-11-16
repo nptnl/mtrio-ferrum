@@ -19,7 +19,7 @@ impl Comp {
             i: 2.0*self.r*self.i,
         }
     }
-    pub fn inv(&self) -> Self {
+    pub fn inv(self) -> Self {
         let coef: f32 = self.r*self.r + self.i*self.i;
         Self {
             r: self.r / coef,
@@ -62,6 +62,9 @@ impl Quat {
             j: -self.j / coef,
             k: -self.k / coef,
         }
+    }
+    pub fn square(self) -> Self {
+        self * self
     }
 }
 impl ops::Neg for Quat {
