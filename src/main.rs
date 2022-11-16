@@ -1,3 +1,5 @@
+use crate::fractal::mandelbrot;
+
 #[allow(dead_code)]
 mod ch;
 #[allow(dead_code)]
@@ -11,4 +13,5 @@ mod fractal;
 fn main() {
     static BASED: bool = true;
     println!("based math has arrived");
+    mandelbrot(8192, 64);
 }

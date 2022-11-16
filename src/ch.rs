@@ -46,6 +46,7 @@ pub struct Quat {
 }
 impl Quat {
     pub fn new(r: f32, i: f32, j: f32, k: f32) -> Self { Self { r, i, j, k } }
+    #[inline(always)]
     pub fn conj(self) -> Self {
         Self {
             r: self.r,
@@ -54,6 +55,7 @@ impl Quat {
             k: -self.k,
         }
     }
+    #[inline(always)]
     pub fn inv(self) -> Self {
         let coef: f32 = self.r*self.r + self.i*self.i + self.j*self.j + self.k*self.k;
         Self {
@@ -63,6 +65,7 @@ impl Quat {
             k: -self.k / coef,
         }
     }
+    #[inline(always)]
     pub fn square(self) -> Self {
         self * self
     }
