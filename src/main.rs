@@ -1,12 +1,9 @@
 #[allow(dead_code)]
 mod ch;
-
 #[allow(dead_code)]
 mod alg;
-
 #[allow(dead_code)]
 mod trig;
-
 #[allow(dead_code)]
 mod fractal;
 

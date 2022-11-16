@@ -155,7 +155,7 @@ fn real_sqrt(x: f32) -> f32 {
     }
     t2
 }
-pub fn comp_sqrt(x: Comp) -> Comp {
+pub(crate) fn comp_sqrt(x: Comp) -> Comp {
     let (mut t1, mut t2): (Comp, Comp) = (Comp::new(2.0,1.0), Comp::new(1.0,1.0));
     while (t2.r - t1.r).abs() > 0.0001 || (t2.i - t1.i).abs() > 0.0001 {
         t1 = t2;

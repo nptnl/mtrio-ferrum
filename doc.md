@@ -29,3 +29,9 @@ Combining Newton's method of finding approximate roots with synthetic division t
 ## **`trig::` easy trigonometric functions**
 
 This module simply contains all trig functions, nothing else.
+
+`sin(x), cos(x), tan(x), cot(x), csc(x), sec(x)` use `ixp(x)` for standard trig values on any complex number.
+
+`sinh(x), cosh(x), tanh(x), coth(x), csch(x), sech(x)` use `exp(x)` for hyperbolic trig values on any complex number.
+
+`asin(x), acos(x), atan(x), acot(x), acsc(x), asec(x)` use `ln(x)` for inverse trig values for any complex numbers.
