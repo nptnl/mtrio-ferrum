@@ -23,6 +23,8 @@ and new stuff will only be added when I feel like adding it.
 
 - Fatou and Mandelbrot set fractal rendering for the famous recursive formula z^2 + c
 
+- Generalized input-space and parameter-space capability for rendering fractals with any recursive formula
+
 - Writing into a custom image format, [NPXL](https://github.com/nptnl/nxl), for compact render storage
 
 - A constant `BASED` that's always `true`

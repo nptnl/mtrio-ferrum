@@ -6,8 +6,6 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 - rational-number type with fraction simplifying
 
-- input space and parameter space fractal rendering for generalized functions
-
 - fractal plot concurrency and further optimization
 
 - TI-89 style equation parsing, differentiation, and solving
