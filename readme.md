@@ -1,3 +1,7 @@
+<img src="./ferrum-icon.png" width="100%">
+
+---
+
 # **Ferrum:** based math has arrived
 
 Ferrum is a Rust math library designed to build some **very cool** math-related functions and projects without relying on other libraries.
