@@ -215,6 +215,9 @@ pub fn ln(x: Comp) -> Comp {
 
     Comp {
         r: (series_ln(magnitude).r - addedr) * neg,
-        i: series_ln(x).i - addedi,
+        i: series_ln(inp).i - addedi,
     }
+}
+pub fn log(base: Comp, x: Comp) -> Comp {
+    ln(x) / ln(base)
 }

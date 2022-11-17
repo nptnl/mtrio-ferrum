@@ -1,4 +1,5 @@
 use std::ops;
+use crate::alg::{exp,ln};
 
 #[derive(Debug, Copy, Clone)]
 pub struct Comp {
@@ -25,6 +26,9 @@ impl Comp {
             r: self.r / coef,
             i: -self.i / coef,
         }
+    }
+    pub fn pow(self, other: Self) -> Self {
+        exp(ln(self) * other)
     }
 }
 impl ops::Neg for Comp {
@@ -152,6 +156,7 @@ impl ops::Div<f32> for Comp {
         Comp::new(self.r/other, self.i/other)
     }
 }
+
 impl ops::Add<Comp> for Comp {
     type Output = Comp;
     fn add(self, other: Comp) -> Comp {

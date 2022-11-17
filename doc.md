@@ -24,7 +24,7 @@ To find one root, or solution, use Newton's method, an algorithm for quickly and
 
 Combining Newton's method of finding approximate roots with synthetic division to factor these roots out, `.solve(y)` generates a vector of all solutions to any polynomial.
 
-`exp(x)` uses an optimized Taylor polynomial algorithm to compute `e^x`, and `ixp(x)` is shorthand for `e^ix`. `ln(x)` performs the natural logarithm for any `Comp` input, also using an optimized Taylor polynomial. All of these functions have proper range-fixing, and will still remain accurate for values outside the Taylor series convergence.
+`exp(x)` uses an optimized Taylor polynomial algorithm to compute `e^x`, and `ixp(x)` is shorthand for `e^ix`. `ln(x)` performs the natural logarithm for any `Comp` input, also using an optimized Taylor polynomial. All of these functions have proper range-fixing, and will still remain accurate for values outside the Taylor series convergence. For ease of use, use `log(n,x)` as shorthand for logarithms of any base.
 
 ## **`trig::` easy trigonometric functions**
 
