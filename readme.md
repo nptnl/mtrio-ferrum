@@ -1,4 +1,4 @@
-<img src="./ferrum-banner.png" width="100%">
+<img src="./fe-banner.png" width="100%">
 
 ---
 
