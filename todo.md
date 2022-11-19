@@ -8,11 +8,11 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 - fractal plot concurrency and further optimization
 
-- TI-89 style equation parsing, differentiation, and solving
-
 - 2D coordinate system and line plotting, into terminal or
 [NPXL](https://github.com/nptnl/nxl)
 image format
 (see [viewer](https://github.com/notseanray/npxl-viewer) by @notseanray)
 
 - 3D projection for spatial rotation and rendering
+
+- explicit and implicit function graphing

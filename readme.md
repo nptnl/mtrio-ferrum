@@ -1,4 +1,4 @@
-<img src="./fe-banner.png" width="100%">
+<img src="./fe-banner.png">
 
 ---
 
@@ -23,9 +23,9 @@ and new stuff will only be added when I feel like adding it.
 
 - Full complex exponentiation and logarithms using both of these
 
-- Trigonometric (and hyperbolic trigonometric) functions using the exponential
+- Trigonometric (and hyperbolic trig) functions using the exponential
 
-- Inverse trigonometric funtions using the logarithm and roots
+- Inverse trigonometric (and inverse hyperbolic trig) funtions using the logarithm and roots
 
 - Fatou and Mandelbrot set fractal rendering for the famous recursive formula z^2 + c
 
