@@ -81,7 +81,7 @@ pub fn pspace(size: i32, iterate: usize) {
         let mut colorstring = String::from("");
         for real in -size..size {
             let c: Comp = Comp::new(2.0 * real as f32 / size as f32, 2.0 * imag as f32 / size as f32);
-            let formula = |z: Comp| trig::tan(z) - z.square() + c; // enter your own closure here
+            let formula = |z: Comp| z * z.square() + c; // enter your own closure here
             let mut z: Comp = Comp::new(0.0,0.0);
             let mut counter = 0;
             while z.r*z.r + z.i*z.i < 4.0 {
