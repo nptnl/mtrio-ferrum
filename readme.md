@@ -43,10 +43,9 @@ and new stuff will only be added when I feel like adding it.
 
 ---
 
-See more concepts, information, terrible memes, and documentation in my Python math library, [puremath](https://github.com/nptnl/puremath).
-
 See the viewer designed for NPXL at
 [npxl-viewer](https://github.com/notseanray/npxl-viewer) by
 [@notseanray](https://github.com/notseanray),
-and formatting information/documentation
-[here](https://github.com/nptnl/nxl).
+and formatting information/documentation at
+[nxl](https://github.com/nptnl/nxl) by
+[me.](httphs://github.com/nptnl)

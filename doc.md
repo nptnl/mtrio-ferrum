@@ -35,3 +35,7 @@ This module simply contains all trig functions, nothing else.
 `sinh(x), cosh(x), tanh(x), coth(x), csch(x), sech(x)` use `exp(x)` for hyperbolic trig values on any complex number.
 
 `asin(x), acos(x), atan(x), acot(x), acsc(x), asec(x)` use `ln(x)` for inverse trig values for any complex numbers.
+
+`acosh(x), asinh(x), atanh(x), acoth(x), asech(x), acsch(x)` use `ln(x)` for inverse hyperbolic trig on complex numbers.
+
+## **`fractal::` render custom fractals with efficiency**
