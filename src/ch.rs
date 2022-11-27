@@ -31,12 +31,43 @@ impl Comp {
         exp(ln(self) * other)
     }
 }
+impl std::cmp::PartialEq for Comp {
+    fn eq(&self, other: &Self) -> bool {
+        self.r == other.r && self.i == other.i
+    }
+    fn ne(&self, other: &Self) -> bool {
+        self.r != other.r || self.i != other.i
+    }
+}
 impl ops::Neg for Comp {
     type Output = Comp;
     fn neg(self) -> Self {
         Self {
             r: -self.r,
             i: -self.i,
+        }
+    }
+}
+impl std::str::FromStr for Comp {
+    type Err = ();
+    fn from_str(slice: &str) -> Result<Comp, Self::Err> {
+        let last: usize = slice.len() - 1;
+        if &slice[last..last+1] == "i" {
+            match slice.rfind('+') {
+                Some(v) => Ok( Comp {
+                    r: slice[..v].parse::<f32>().unwrap(),
+                    i: slice[v+1..last].parse::<f32>().unwrap()
+                } ),
+                None => match slice.rfind('-') {
+                    Some(v) => Ok( Comp {
+                        r: slice[..v].parse::<f32>().unwrap(),
+                        i: -slice[v+1..last].parse::<f32>().unwrap()
+                    } ),
+                    None => Err(println!("basic number parsing error")),
+                },
+            }
+        } else {
+            Ok(Comp::new(slice.parse::<f32>().unwrap(), 0.0))
         }
     }
 }
@@ -337,6 +368,11 @@ impl ops::MulAssign for Comp {
             r: self.r*other.r - self.i*other.i,
             i: self.r*other.i + self.i*other.r,
         }
+    }
+}
+impl ops::DivAssign for Comp {
+    fn div_assign(&mut self, other: Comp) {
+        *self = *self * other.inv()
     }
 }
 
