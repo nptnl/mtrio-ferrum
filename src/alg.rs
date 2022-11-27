@@ -218,6 +218,3 @@ pub fn ln(x: Comp) -> Comp {
         i: series_ln(inp).i - addedi,
     }
 }
-pub fn log(base: Comp, x: Comp) -> Comp {
-    ln(x) / ln(base)
-}

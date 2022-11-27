@@ -1,5 +1,5 @@
 use std::ops;
-use crate::alg::{exp,ln};
+use crate::alg::{exp, ln};
 
 #[derive(Debug, Copy, Clone)]
 pub struct Comp {
@@ -29,6 +29,9 @@ impl Comp {
     }
     pub fn pow(self, other: Self) -> Self {
         exp(ln(self) * other)
+    }
+    pub fn log(self, other: Self) -> Self {
+        ln(self) / ln(other)
     }
 }
 impl std::cmp::PartialEq for Comp {
