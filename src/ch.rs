@@ -48,29 +48,6 @@ impl ops::Neg for Comp {
         }
     }
 }
-impl std::str::FromStr for Comp {
-    type Err = ();
-    fn from_str(slice: &str) -> Result<Comp, Self::Err> {
-        let last: usize = slice.len() - 1;
-        if &slice[last..last+1] == "i" {
-            match slice.rfind('+') {
-                Some(v) => Ok( Comp {
-                    r: slice[..v].parse::<f32>().unwrap(),
-                    i: slice[v+1..last].parse::<f32>().unwrap()
-                } ),
-                None => match slice.rfind('-') {
-                    Some(v) => Ok( Comp {
-                        r: slice[..v].parse::<f32>().unwrap(),
-                        i: -slice[v+1..last].parse::<f32>().unwrap()
-                    } ),
-                    None => Err(println!("basic number parsing error")),
-                },
-            }
-        } else {
-            Ok(Comp::new(slice.parse::<f32>().unwrap(), 0.0))
-        }
-    }
-}
 
 #[derive(Debug, Copy, Clone)]
 pub struct Quat {
@@ -100,6 +77,14 @@ impl Quat {
     }
     pub fn square(self) -> Self {
         self * self
+    }
+}
+impl std::cmp::PartialEq for Quat {
+    fn eq(&self, other: &Self) -> bool {
+        self.r == other.r && self.i == other.i && self.j == other.j && self.k == other.k
+    }
+    fn ne(&self, other: &Self) -> bool {
+        self.r != other.r || self.i != other.i || self.j != other.j || self.k != other.k
     }
 }
 impl ops::Neg for Quat {
@@ -187,7 +172,6 @@ impl ops::Div<f32> for Comp {
         Comp::new(self.r/other, self.i/other)
     }
 }
-
 impl ops::Add<Comp> for Comp {
     type Output = Comp;
     fn add(self, other: Comp) -> Comp {
@@ -346,7 +330,7 @@ impl ops::Div<Quat> for Quat {
     }
 }
 
-impl ops::AddAssign for Comp {
+impl ops::AddAssign<Comp> for Comp {
     fn add_assign(&mut self, other: Comp) {
         *self = Self {
             r: self.r + other.r,
@@ -354,7 +338,7 @@ impl ops::AddAssign for Comp {
         }
     }
 }
-impl ops::SubAssign for Comp {
+impl ops::SubAssign<Comp> for Comp {
     fn sub_assign(&mut self, other: Comp) {
         *self = Self {
             r: self.r - other.r,
@@ -362,7 +346,7 @@ impl ops::SubAssign for Comp {
         }
     }
 }
-impl ops::MulAssign for Comp {
+impl ops::MulAssign<Comp> for Comp {
     fn mul_assign(&mut self, other: Comp) {
         *self = Self {
             r: self.r*other.r - self.i*other.i,
@@ -370,9 +354,54 @@ impl ops::MulAssign for Comp {
         }
     }
 }
-impl ops::DivAssign for Comp {
+impl ops::DivAssign<Comp> for Comp {
     fn div_assign(&mut self, other: Comp) {
         *self = *self * other.inv()
+    }
+}
+
+impl ops::AddAssign<Quat> for Quat {
+    fn add_assign(&mut self, other: Quat) {
+        *self = *self + other
+    }
+}
+impl ops::SubAssign<Quat> for Quat {
+    fn sub_assign(&mut self, other: Quat) {
+        *self = *self - other
+    }
+}
+impl ops::MulAssign<Quat> for Quat {
+    fn mul_assign(&mut self, other: Quat) {
+        *self = *self * other
+    }
+}
+impl ops::DivAssign<Quat> for Quat {
+    fn div_assign(&mut self, other: Quat) {
+        *self = *self * other.inv()
+    }
+}
+
+impl std::str::FromStr for Comp {
+    type Err = ();
+    fn from_str(slice: &str) -> Result<Comp, Self::Err> {
+        let last: usize = slice.len() - 1;
+        if &slice[last..last+1] == "i" {
+            match slice.rfind('+') {
+                Some(v) => Ok( Comp {
+                    r: slice[..v].parse::<f32>().unwrap(),
+                    i: slice[v+1..last].parse::<f32>().unwrap()
+                } ),
+                None => match slice.rfind('-') {
+                    Some(v) => Ok( Comp {
+                        r: slice[..v].parse::<f32>().unwrap(),
+                        i: -slice[v+1..last].parse::<f32>().unwrap()
+                    } ),
+                    None => Err(println!("basic number parsing error")),
+                },
+            }
+        } else {
+            Ok(Comp::new(slice.parse::<f32>().unwrap(), 0.0))
+        }
     }
 }
 
