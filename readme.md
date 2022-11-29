@@ -49,3 +49,5 @@ See the viewer designed for NPXL at
 and formatting information/documentation at
 [nxl](https://github.com/nptnl/nxl) by
 [me.](httphs://github.com/nptnl)
+
+Watch me attempt to use this math to create a calculator with user-input in [Titanium](https://github.com/nptnl/titanium).

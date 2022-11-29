@@ -1,10 +1,14 @@
 # **how the functions work and how to use them**
 
-## **`ch::` complex and quaternion numbers**
+## **`ch::` complex and quaternion number systems**
 
 Structs for complex numbers and quaternions - extending our set of numbers and acting as a sort of backbone from which to build a library of math.
 
 Negation, addition, subtraction, multipication, and division are implemented with normal syntax using `std::ops`, and defined both ways between each pair of number types: `f32`, `Comp`, and `Quat`.
+
+Use `.pow(_)` for exponentiation and `.log(_)` for logarithms of any base, using
+`(a+bi)^(c+di) == exp( ln(a+bi) * (c+di) )` to evaluate exponentials and
+`log_b(a) == ln(a) / ln(b)` to compute logarithms. 
 
 Create a new value with `Comp::new(r, i)` or `Quat::new(r, i, j, k)`. Each value should be of type `f32`, as these structs are designed around `f32`s specifically.
 

@@ -4,6 +4,10 @@ Most initial features will be brought over from my Python math library, [PureMat
 
 ---
 
+- define all the proper functions for quaternions
+
+- fmt::Display for ch types
+
 - rational-number type with fraction simplifying
 
 - fractal plot concurrency and further optimization
