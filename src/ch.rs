@@ -34,7 +34,7 @@ impl Comp {
         ln(self) / ln(other)
     }
 }
-impl std::cmp::PartialEq for Comp {
+impl std::cmp::PartialEq<Comp> for Comp {
     fn eq(&self, other: &Self) -> bool {
         self.r == other.r && self.i == other.i
     }
@@ -82,7 +82,7 @@ impl Quat {
         self * self
     }
 }
-impl std::cmp::PartialEq for Quat {
+impl std::cmp::PartialEq<Quat> for Quat {
     fn eq(&self, other: &Self) -> bool {
         self.r == other.r && self.i == other.i && self.j == other.j && self.k == other.k
     }
@@ -333,36 +333,87 @@ impl ops::Div<Quat> for Quat {
     }
 }
 
+impl ops::AddAssign<f32> for Comp {
+    fn add_assign(&mut self, other: f32) {
+        *self = *self + other
+    }
+}
+impl ops::SubAssign<f32> for Comp {
+    fn sub_assign(&mut self, other: f32) {
+        *self = *self - other
+    }
+}
+impl ops::MulAssign<f32> for Comp {
+    fn mul_assign(&mut self, other: f32) {
+        *self = *self * other
+    }
+}
+impl ops::DivAssign<f32> for Comp {
+    fn div_assign(&mut self, other: f32) {
+        *self = *self / other
+    }
+}
 impl ops::AddAssign<Comp> for Comp {
     fn add_assign(&mut self, other: Comp) {
-        *self = Self {
-            r: self.r + other.r,
-            i: self.i + other.i,
-        }
+        *self = *self + other
     }
 }
 impl ops::SubAssign<Comp> for Comp {
     fn sub_assign(&mut self, other: Comp) {
-        *self = Self {
-            r: self.r - other.r,
-            i: self.i - other.i,
-        }
+        *self = *self - other
     }
 }
 impl ops::MulAssign<Comp> for Comp {
     fn mul_assign(&mut self, other: Comp) {
-        *self = Self {
-            r: self.r*other.r - self.i*other.i,
-            i: self.r*other.i + self.i*other.r,
-        }
+        *self = *self * other
     }
 }
 impl ops::DivAssign<Comp> for Comp {
     fn div_assign(&mut self, other: Comp) {
-        *self = *self * other.inv()
+        *self = *self / other
     }
 }
 
+impl ops::AddAssign<f32> for Quat {
+    fn add_assign(&mut self, other: f32) {
+        *self = *self + other
+    }
+}
+impl ops::SubAssign<f32> for Quat {
+    fn sub_assign(&mut self, other: f32) {
+        *self = *self - other
+    }
+}
+impl ops::MulAssign<f32> for Quat {
+    fn mul_assign(&mut self, other: f32) {
+        *self = *self * other
+    }
+}
+impl ops::DivAssign<f32> for Quat {
+    fn div_assign(&mut self, other: f32) {
+        *self = *self / other
+    }
+}
+impl ops::AddAssign<Comp> for Quat {
+    fn add_assign(&mut self, other: Comp) {
+        *self = *self + other
+    }
+}
+impl ops::SubAssign<Comp> for Quat {
+    fn sub_assign(&mut self, other: Comp) {
+        *self = *self - other
+    }
+}
+impl ops::MulAssign<Comp> for Quat {
+    fn mul_assign(&mut self, other: Comp) {
+        *self = *self * other
+    }
+}
+impl ops::DivAssign<Comp> for Quat {
+    fn div_assign(&mut self, other: Comp) {
+        *self = *self / other
+    }
+}
 impl ops::AddAssign<Quat> for Quat {
     fn add_assign(&mut self, other: Quat) {
         *self = *self + other
@@ -380,7 +431,7 @@ impl ops::MulAssign<Quat> for Quat {
 }
 impl ops::DivAssign<Quat> for Quat {
     fn div_assign(&mut self, other: Quat) {
-        *self = *self * other.inv()
+        *self = *self / other
     }
 }
 
