@@ -16,7 +16,7 @@ Additionally, use `.conj()` for conjugates, `.inv()` for the inverse (1/z), and 
 
 ## **`alg::` polynomial and exponential action**
 
-A struct to encode polynomial functions as vectors. Becuase these contain vectors, make sure to make proper use of `&`borrowing when calling values of this type. You won't have to worry about that with `ch::Comp` and `ch::Quat`, because those structs consist purely of `f32` numbers. 
+`Poly` is a struct to encode polynomial functions as vectors. Becuase these contain vectors, make sure to make proper use of `&`referencing when using this type. You won't have to worry about that with `ch::Comp` and `ch::Quat`, because those structs consist purely of `f32` numbers. 
 
 These polynomials can add, subtract, and multiply normally with each other and with `f32` and `Comp` types. In fact, the entire system is built on complex numbers, as the plane of complex numbers is where the Fundamental Theorem of Algebra will apply.
 

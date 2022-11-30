@@ -27,12 +27,6 @@ and new stuff will only be added when I feel like adding it.
 
 - Inverse trigonometric (and inverse hyperbolic trig) funtions using the logarithm and roots
 
-- Fatou and Mandelbrot set fractal rendering for the famous recursive formula z^2 + c
-
-- Generalized input-space and parameter-space capability for rendering fractals with any recursive formula
-
-- Writing into a custom image format, [NPXL](https://github.com/nptnl/nxl), for compact render storage
-
 - A constant `BASED` that's always `true`
 
 *(See the function details and math concepts in
@@ -43,11 +37,7 @@ and new stuff will only be added when I feel like adding it.
 
 ---
 
-See the viewer designed for NPXL at
-[npxl-viewer](https://github.com/notseanray/npxl-viewer) by
-[@notseanray](https://github.com/notseanray),
-and formatting information/documentation at
-[nxl](https://github.com/nptnl/nxl) by
-[me.](httphs://github.com/nptnl)
-
-Watch me attempt to use this math to create a calculator with user-input in [Titanium](https://github.com/nptnl/titanium).
+Watch me attempt to use this math to create a calculator with user-input in
+[Titanium](https://github.com/nptnl/titanium),
+and see a few visual applications for the math at
+[Chromium](https://github.com/nptnl/chromium).
