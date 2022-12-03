@@ -454,7 +454,10 @@ impl std::str::FromStr for Comp {
                 },
             }
         } else {
-            Ok(Comp::new(slice.parse::<f32>().unwrap(), 0.0))
+            match slice.parse::<f32>() {
+                Ok(v) => Ok(Comp {r: v, i: 0.0 }),
+                Err(_) => Err(()),
+            }
         }
     }
 }
