@@ -189,7 +189,7 @@ fn series_ln(x: Comp) -> Comp {
     total
 }
 pub fn ln(x: Comp) -> Comp {
-    
+
     let mut magnitude: Comp = Comp::new(real_sqrt(x.r*x.r + x.i*x.i), 0.0);
     let mut inp: Comp = x / magnitude;
     let mut neg: f32 = 1.0;

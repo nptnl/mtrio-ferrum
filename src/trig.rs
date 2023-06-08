@@ -1,7 +1,7 @@
 use crate::ch::{Comp, CCI};
 use crate::alg::{exp, ixp, ln, comp_sqrt};
 
-static PI: f32 = 3.1415926535;
+pub static PI: f32 = 3.1415926535;
 
 pub fn sin(x: Comp) -> Comp { (ixp(x) - ixp(x).inv()) * Comp::new(0.0,-0.5) }
 pub fn cos(x: Comp) -> Comp { (ixp(x) + ixp(x).inv()) * 0.5 }

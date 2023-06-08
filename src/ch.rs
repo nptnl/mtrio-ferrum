@@ -8,6 +8,7 @@ pub struct Comp {
 }
 impl Comp {
     pub fn new(r: f32, i: f32) -> Self { Self { r, i } }
+    pub fn nre(r: f32) -> Self { Self { r, i: 0.0 } }
     pub fn conj(self) -> Self {
         Self {
             r: self.r,
@@ -61,6 +62,7 @@ pub struct Quat {
 }
 impl Quat {
     pub fn new(r: f32, i: f32, j: f32, k: f32) -> Self { Self { r, i, j, k } }
+    pub fn nre(r: f32) -> Self { Self { r, i: 0.0, j: 0.0, k: 0.0 } }
     pub fn conj(self) -> Self {
         Self {
             r: self.r,
@@ -450,7 +452,10 @@ impl std::str::FromStr for Comp {
                         r: slice[..v].parse::<f32>().unwrap(),
                         i: -slice[v+1..last].parse::<f32>().unwrap()
                     } ),
-                    None => Err(println!("basic number parsing error")),
+                    None => Ok( Comp {
+                        r: 0.0,
+                        i: slice[..last].parse::<f32>().unwrap()
+                    } ),
                 },
             }
         } else {
